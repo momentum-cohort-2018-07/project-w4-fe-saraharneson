@@ -26,6 +26,33 @@
 }
 
 #resultsTitle {
-    margin: 15px 0;
+    margin: 10px 20px;
     font-size: 1.5rem;
+}
+
+#resultsContainer {
+    margin: 10px 20px;
+}
+
+.songPacket {
+    margin: 5px 0 20px 0;
+    text-align: center;
+}
+
+.band {
+    /* text-align: center; */
+    font-size: 0.75rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.song {
+    /* text-align: center; */
+    font-size: 0.9rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-weight: bold; */
+}
+
+.art {
+    align-items: center;
 }
