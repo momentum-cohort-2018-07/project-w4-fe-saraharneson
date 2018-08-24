@@ -2,25 +2,45 @@ import request from 'superagent'
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 
-// PARSE EXAMPLE
-// request.get("https://itunes.apple.com/search?term=jack+johnson")
-// .then(response => JSON.parse(response.text))
-// .then(body => console.log(body.resultCount))
+document.getElementById('searchBandForm')
+  .addEventListener('submit', event => {
+    event.preventDefault()
 
-// https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
+    let searchTerm =
+      document.getElementById('searchField').value.replace(' ', '+').trim()
 
-// artworkUrl100
+    request.get(`https://itunes.apple.com/search?term=${searchTerm}`)
+      .then(response => JSON.parse(response.text))
+      .then(body => {
+        console.log(body.results)
+        let results = body.results
+        let resultsDisplayed = document.getElementById('resultsDisplayed')
+        for (let result of results) {
+          resultsDisplayed.appendChild(
+            makeSongPacket(result)
+          )
+        }
+      })
+  })
 
-// https://itunes.apple.com/search?term=old+97s&entity=song
+function makeSongPacket (result) {
+  let songDiv = document.createElement('div')
+  songDiv.classList.add('col-4', 'songPacket')
 
-document.getElementById('searchBandForm').addEventListener('submit', event => {
-  event.preventDefault()
+  let songName = document.createElement('div')
+  songName.classList.add('song')
+  songName.innerText = result.trackName
+  songDiv.appendChild(songName)
 
-  let searchTerm =
-        document.getElementById('searchField').value.replace(' ', '+').trim()
+  let bandName = document.createElement('div')
+  bandName.classList.add('band')
+  bandName.innerText = result.artistName
+  songDiv.appendChild(bandName)
 
-  request.get(`https://itunes.apple.com/search?term=${searchTerm}`)
-    .then(response => JSON.parse(response.text))
-    .then(body => console.log(body.results))
-//   let results = body.results
-})
+  let bandArt = document.createElement('div')
+  bandArt.classList.add('art')
+  bandArt.innerHTML = `<img src=${result.artworkUrl100}>`
+  songDiv.appendChild(bandArt)
+
+  return songDiv
+}
