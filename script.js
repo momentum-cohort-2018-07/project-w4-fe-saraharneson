@@ -6,6 +6,8 @@ document.getElementById('searchBandForm')
   .addEventListener('submit', event => {
     event.preventDefault()
 
+    document.getElementById('resultsDisplayed').innerHTML = ''
+
     let searchTerm =
       document.getElementById('searchField').value.replace(' ', '+').trim()
 
@@ -18,9 +20,10 @@ document.getElementById('searchBandForm')
         for (let result of results) {
           resultsDisplayed.appendChild(
             makeSongPacket(result)
-          )  
+          )
         }
       })
+    clearForm()
   })
 
 function makeSongPacket (result) {
@@ -45,4 +48,6 @@ function makeSongPacket (result) {
   return songDiv
 }
 
-// document.getElementById('searchBandForm').reset()
+function clearForm () {
+  document.getElementById('searchBandForm').reset()
+}
