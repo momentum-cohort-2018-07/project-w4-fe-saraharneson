@@ -18,7 +18,7 @@ document.getElementById('searchBandForm')
         for (let result of results) {
           resultsDisplayed.appendChild(
             makeSongPacket(result)
-          )
+          )  
         }
       })
   })
@@ -27,20 +27,22 @@ function makeSongPacket (result) {
   let songDiv = document.createElement('div')
   songDiv.classList.add('col-4', 'songPacket')
 
-  let songName = document.createElement('div')
-  songName.classList.add('song')
-  songName.innerText = result.trackName
-  songDiv.appendChild(songName)
+  let bandArt = document.createElement('div')
+  bandArt.classList.add('art')
+  bandArt.innerHTML = `<img src=${result.artworkUrl100}>`
+  songDiv.appendChild(bandArt)
 
   let bandName = document.createElement('div')
   bandName.classList.add('band')
   bandName.innerText = result.artistName
   songDiv.appendChild(bandName)
 
-  let bandArt = document.createElement('div')
-  bandArt.classList.add('art')
-  bandArt.innerHTML = `<img src=${result.artworkUrl100}>`
-  songDiv.appendChild(bandArt)
+  let songName = document.createElement('div')
+  songName.classList.add('song')
+  songName.innerText = result.trackName
+  songDiv.appendChild(songName)
 
   return songDiv
 }
+
+// document.getElementById('searchBandForm').reset()
