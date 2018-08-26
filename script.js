@@ -11,7 +11,7 @@ document.getElementById('searchBandForm')
     let searchTerm =
       document.getElementById('searchField').value.replace(' ', '+').trim()
 
-    request.get(`https://itunes.apple.com/search?term=${searchTerm}`)
+    request.get(`https://itunes.apple.com/search?term=${searchTerm}&media=music`)
       .then(response => JSON.parse(response.text))
       .then(body => {
         console.log(body.results)
@@ -29,6 +29,7 @@ document.getElementById('searchBandForm')
 function makeSongPacket (result) {
   let songDiv = document.createElement('div')
   songDiv.classList.add('col-4', 'songPacket')
+  songDiv.dataset.clip = `${result.previewUrl}`
 
   let bandArt = document.createElement('div')
   bandArt.classList.add('art')
@@ -51,3 +52,12 @@ function makeSongPacket (result) {
 function clearForm () {
   document.getElementById('searchBandForm').reset()
 }
+
+document.getElementById('resultsDisplayed')
+  .addEventListener('click', function (e) {
+    // console.log('whaaa??')
+    if (e.target && e.target.closest('.songPacket')) {
+      document.getElementById('clipPlayer').src = e.target.closest('.songPacket').dataset.clip
+      document.getElementById('clipPlayer').play()
+    }
+  })

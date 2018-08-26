@@ -13,27 +13,32 @@
 
 <body>
     <div id="topBanner">
-        <h1 id="searchTitle">
-            <span class="musicalNotes">🎵     </span> Song Search
-            <span class="musicalNotes">     🎵</span>
+        <img src="./recordShelf-bw2.jpg">
+        <h1 id="searchTitle"><span class="recordO">O</span>
+            <span class="musicalNotes mobile-omit">🎵     </span> <span class="wordSep">Song</span><span class="wordSep">Search</span>
+            <span class="musicalNotes">     🎵</span><span class="recordO">O</span>
         </h1>
 
     </div>
     <div id="container">
         <form id="searchBandForm">
             <div class="input-field">
-                <!-- <label>Song me!</label> -->
-                <input type="search" id="searchField">
-                <p class="input-hint">What band or artist do you want to hear?</p>
+            <!-- <label>Song me!</label> -->
+            <input type="search" id="searchField">
+                <p class="input-hint">Search by artist, song or album</p>
             </div>
-            <button id="submitNoteButton" type="submit">Song me!   
-            </button>
-        </form>
 
-    <!-- <div id="songPlayer">
-        <audio id="player" controls="controls" autoplay="false"><source src="" 
-        type="audio/mpg"></audio>
-    </div>     -->
+            <!-- <input type="radio" class="radioButton" name="searchType" value="artist name" checked> Artist<br>  
+            <input type="radio"  class="radioButton" name="searchType" value="trackName"> Song<br>
+            <input type="radio"  class="radioButton" name="album title" value="collectionName"> Album<br>   -->
+
+            <button class="button" id="submitButton" type="submit">Show me songs!   
+            </button>
+        </form> 
+
+    <div id="songPlayer">
+        <audio id="clipPlayer" controls></audio>
+    </div>    
 
     <div id="resultsTitle">Search Results:</div>
     <div id="resultsContainer">
