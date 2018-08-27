@@ -19,10 +19,10 @@
 
 #searchTitle {
     position: absolute;
-    top: 40%;
+    top: 35%;
     width: 100%;
     background-color:#626567;
-    font-size: 3.25rem;
+    font-size: 2rem;
     font-family: 'Monoton', cursive;
     padding: 15px;
     /* color: #CD5C5C; */
@@ -31,6 +31,11 @@
 
 #container {
     margin: 10px 30px;
+}
+
+.musicalNotes {
+    display: none;
+    margin: 0 30px;
 }
 
 .recordO {
@@ -51,6 +56,7 @@
 
 #submitButton {
     margin: 0 0;
+    /* background-color:#626567; */
     /* display: inline-block; */
 }
 
