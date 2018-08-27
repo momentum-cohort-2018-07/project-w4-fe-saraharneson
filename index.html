@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iTunes Search</title>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="styles.css" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Roboto+Condensed:300,700" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div id="topBanner">
+        <img src="./recordShelf-bw2.jpg">
+        <h1 id="searchTitle"><span class="recordO">O</span>
+            <span class="musicalNotes mobile-omit">🎵     </span> <span class="wordSep">Song</span><span class="wordSep">Search</span>
+            <span class="musicalNotes">     🎵</span><span class="recordO">O</span>
+        </h1>
+
+    </div>
+    <div id="container">
+        <form id="searchBandForm">
+            <div class="input-field">
+            <!-- <label>Song me!</label> -->
+            <input type="search" id="searchField">
+                <p class="input-hint">Search by artist, song or album</p>
+            </div>
+
+            <!-- <input type="radio" class="radioButton" name="searchType" value="artist name" checked> Artist<br>  
+            <input type="radio"  class="radioButton" name="searchType" value="trackName"> Song<br>
+            <input type="radio"  class="radioButton" name="album title" value="collectionName"> Album<br>   -->
+
+            <button class="button" id="submitButton" type="submit">Show me songs!   
+            </button>
+        </form> 
+
+    <div id="songPlayer">
+        <audio id="clipPlayer" controls></audio>
+    </div>    
+
+    <div id="resultsTitle">Search Results:</div>
+    <div id="resultsContainer">
+        <div class="row row-center" id="resultsDisplayed">
+        </div>
+    </div>
+</div>
+</body>
+</html>
